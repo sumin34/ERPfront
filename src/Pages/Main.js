@@ -1,9 +1,12 @@
 import React from "react";
+import CardBody from "../components/CardBody";
+import GraphBody from "../components/GraphBody";
 
 function Main() {
   return (
     <div class="content">
-      <p>메인 페이지</p>
+      <CardBody />
+      <GraphBody />
     </div>
   );
 }

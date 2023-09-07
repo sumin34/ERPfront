@@ -1,26 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-bs-theme="light" lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
-    <link href="../src/App.css" rel="stylesheet" id="style-default" />
 
     <title>React App</title>
+
+    <meta name="theme-color" content="#ffffff" />
+    <script src="assets/js/config.js"></script>
+    <script src="vendors/simplebar/simplebar.min.js"></script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="vendors/simplebar/simplebar.min.css" rel="stylesheet" />
+    <link href="assets/css/theme-rtl.min.css" rel="stylesheet" id="style-rtl" />
+    <link href="assets/css/theme.min.css" rel="stylesheet" id="style-default" />
+    <link
+      href="assets/css/user-rtl.min.css"
+      rel="stylesheet"
+      id="user-style-rtl"
+    />
+    <link
+      href="assets/css/user.min.css"
+      rel="stylesheet"
+      id="user-style-default"
+    />
+    <script>
+      var isRTL = JSON.parse(localStorage.getItem("isRTL"));
+      if (isRTL) {
+        var linkDefault = document.getElementById("style-default");
+        var userLinkDefault = document.getElementById("user-style-default");
+        linkDefault.setAttribute("disabled", true);
+        userLinkDefault.setAttribute("disabled", true);
+        document.querySelector("html").setAttribute("dir", "rtl");
+      } else {
+        var linkRTL = document.getElementById("style-rtl");
+        var userLinkRTL = document.getElementById("user-style-rtl");
+        linkRTL.setAttribute("disabled", true);
+        userLinkRTL.setAttribute("disabled", true);
+      }
+    </script>
   </head>
   <body>
     <noscript
       >현재 사용 중인 브라우저는 스크립트를 지원하지 않거나, 해당 기능이
       활성화되어 있지 않습니다!</noscript
     >
+
     <div id="root"></div>
+
+    <script src="vendors/popper/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/anchorjs/anchor.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="vendors/echarts/echarts.min.js"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/list.js/list.min.js"></script>
+    <script src="assets/js/theme.js"></script>
   </body>
 </html>

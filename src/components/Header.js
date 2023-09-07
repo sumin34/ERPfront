@@ -3,35 +3,22 @@ import React from "react";
 function Header() {
   return (
     <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand-lg">
-      <button
-        class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarStandard"
-        aria-controls="navbarStandard"
-        aria-expanded="false"
-        aria-label="Toggle Navigation"
-      >
-        <span class="navbar-toggle-icon">
-          <span class="toggle-line"></span>
-        </span>
-      </button>
-      <a class="navbar-brand me-1 me-sm-3" href="../index.html">
+      <a class="navbar-brand me-1 me-sm-3" href="/">
         <div class="d-flex align-items-center">
-          <img class="me-2" src="img/falcon.png" alt="" width="40" />
+          <img class="me-2" src="assets/img/falcon.png" alt="" width="40" />
           <span class="font-sans-serif text-primary">falcon</span>
         </div>
       </a>
       <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
         <ul class="navbar-nav" data-top-nav-dropdowns="data-top-nav-dropdowns">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://naver.com">
-              Dashboard
+            <a class="nav-link dropdown-toggle" href="/detail">
+              Detail
             </a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://naver.com">
-              asd
+              Orders
             </a>
           </li>
         </ul>
@@ -47,7 +34,7 @@ function Header() {
             aria-expanded="false"
           >
             <div class="avatar avatar-xl">
-              <img class="rounded-circle" src="img/1-thumb.png" alt="" />
+              <img class="rounded-circle" src="assets/img/1-thumb.png" alt="" />
             </div>
           </a>
           <div
