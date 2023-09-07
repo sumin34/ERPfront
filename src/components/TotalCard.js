@@ -1,12 +1,10 @@
 import React from "react";
 import "../App.css";
-import Dropbar from "../elements/dropbar";
 function TotalCard() {
   const imageStyle = {};
 
   return (
     <>
-      <Dropbar></Dropbar>
       <input></input>
       <div className="col-12">
         <div className="card bg-transparent-50 overflow-hidden">
