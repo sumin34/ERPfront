@@ -1,24 +1,11 @@
 import React from "react";
 
-function Card() {
+function Card3() {
   return (
     <div class="col-md-6 col-xxl-3">
       <div class="card h-md-100 ecommerce-card-min-width">
         <div class="card-header pb-0">
-          <h6 class="mb-0 mt-2 d-flex align-items-center">
-            Weekly Sales
-            <span
-              class="ms-1 text-400"
-              data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title="Calculated according to last week's sales"
-            >
-              <span
-                class="far fa-question-circle"
-                data-fa-transform="shrink-1"
-              ></span>
-            </span>
-          </h6>
+          <h6 class="mb-0 mt-2 d-flex align-items-center">상위 품목</h6>
         </div>
         <div class="card-body d-flex flex-column justify-content-end">
           <div class="row">
@@ -38,4 +25,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default Card3;
