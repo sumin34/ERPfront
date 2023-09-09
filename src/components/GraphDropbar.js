@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import "../App.css";
 import { setSelectedOption } from "../redux/store";
+import GraphChart from "./GraphChart";
+
 
 function GraphDropbar() {
     const selectedOption = useSelector((state) => state.selectedOption);
@@ -10,7 +12,12 @@ function GraphDropbar() {
     const renderGraph = () => {
       switch (selectedOption) {
         case 'shop':
-          return <div>Shop Graph Here</div>;
+          return( 
+            <>
+            <div>Shop Graph Here</div>
+            <GraphChart></GraphChart>
+            </>
+          );
         case 'date':
           return <div>Date Graph Here</div>;
         case 'product':
