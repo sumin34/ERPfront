@@ -1372,11 +1372,11 @@ var advanceAjaxTableInit = function advanceAjaxTableInit() {
 /*                                  Anchor JS                                 */
 /* -------------------------------------------------------------------------- */
 
-var anchors = new window.AnchorJS();
-anchors.options = {
-  icon: "#",
-};
-anchors.add("[data-anchor]");
+// var anchors = new window.AnchorJS();
+// anchors.options = {
+//   icon: "#",
+// };
+// anchors.add("[data-anchor]");
 
 /*-----------------------------------------------
 |   Bottom Bar Control
@@ -2093,27 +2093,27 @@ var dropdownMenuInit = function dropdownMenuInit() {
 /*                           Open dropdown on hover                           */
 /* -------------------------------------------------------------------------- */
 
-var dropdownOnHover = function dropdownOnHover() {
-  var navbarArea = document.querySelector("[data-top-nav-dropdowns]");
-  if (navbarArea) {
-    navbarArea.addEventListener("mouseover", function (e) {
-      if (
-        e.target.className.includes("dropdown-toggle") &&
-        window.innerWidth > 992
-      ) {
-        var dropdownInstance = new window.bootstrap.Dropdown(e.target);
+// var dropdownOnHover = function dropdownOnHover() {
+//   var navbarArea = document.querySelector("[data-top-nav-dropdowns]");
+//   if (navbarArea) {
+//     navbarArea.addEventListener("mouseover", function (e) {
+//       if (
+//         e.target.className.includes("dropdown-toggle") &&
+//         window.innerWidth > 992
+//       ) {
+//         var dropdownInstance = new window.bootstrap.Dropdown(e.target);
 
-        /* eslint-disable no-underscore-dangle */
-        dropdownInstance._element.classList.add("show");
-        dropdownInstance._menu.classList.add("show");
-        dropdownInstance._menu.setAttribute("data-bs-popper", "none");
-        e.target.parentNode.addEventListener("mouseleave", function () {
-          dropdownInstance.hide();
-        });
-      }
-    });
-  }
-};
+//         /* eslint-disable no-underscore-dangle */
+//         dropdownInstance._element.classList.add("show");
+//         dropdownInstance._menu.classList.add("show");
+//         dropdownInstance._menu.setAttribute("data-bs-popper", "none");
+//         e.target.parentNode.addEventListener("mouseleave", function () {
+//           dropdownInstance.hide();
+//         });
+//       }
+//     });
+//   }
+// };
 
 /* eslint-disable */
 
@@ -2277,7 +2277,7 @@ var formValidationInit = function formValidationInit() {
 /*                                FullCalendar                                */
 /* -------------------------------------------------------------------------- */
 
-var merge = window._.merge;
+//var merge = window._.merge;
 var renderCalendar = function renderCalendar(el, option) {
   var _document$querySelect;
   var options = merge(
@@ -16011,7 +16011,7 @@ var totalSalesInit = function totalSalesInit() {
   if ($echartsLineTotalSales) {
     // Get options from data attribute
     var userOptions = utils.getData($echartsLineTotalSales, "options");
-    var chart = window.echarts.init($echartsLineTotalSales);
+    //var chart = window.echarts.init($echartsLineTotalSales);
     var monthsnumber = [
       [60, 80, 60, 80, 65, 130, 120, 100, 30, 40, 30, 70],
       [100, 70, 80, 50, 120, 100, 130, 140, 90, 100, 40, 50],
@@ -16161,7 +16161,7 @@ var totalSalesInit = function totalSalesInit() {
         },
       };
     };
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    //echartSetOption(chart, userOptions, getDefaultOptions);
 
     // Change chart options accordiong to the selected month
     var monthSelect = document.querySelector(SELECT_MONTH);
@@ -17633,7 +17633,7 @@ var weeklySalesInit = function weeklySalesInit() {
     var yMax = Math.max.apply(Math, data);
 
     // const dataBackground = data.map(() => yMax);
-    var chart = window.echarts.init($echartBarWeeklySales);
+    // var chart = window.echarts.init($echartBarWeeklySales);
 
     // Default options
     var getDefaultOptions = function getDefaultOptions() {
@@ -17717,7 +17717,7 @@ var weeklySalesInit = function weeklySalesInit() {
         },
       };
     };
-    echartSetOption(chart, userOptions, getDefaultOptions);
+    // echartSetOption(chart, userOptions, getDefaultOptions);
   }
 };
 
@@ -17764,7 +17764,7 @@ docReady(wizardInit);
 docReady(searchInit);
 docReady(cookieNoticeInit);
 docReady(themeControl);
-docReady(dropdownOnHover);
+//docReady(dropdownOnHover);
 docReady(marketShareEcommerceInit);
 docReady(productShareDoughnutInit);
 docReady(totalSalesEcommerce);
