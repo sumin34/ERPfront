@@ -4,9 +4,9 @@ import Card2 from "./Card2";
 import Card3 from "./Card3";
 import Card4 from "./Card4";
 
-function CardBody() {
+function CardBody({className}) {
   return (
-    <div class="row g-3 mb-3">
+    <div class={className}>
       <Card1 />
       <Card2 />
       <Card3 />

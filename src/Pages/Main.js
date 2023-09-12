@@ -5,7 +5,7 @@ import GraphBody from "../components/GraphBody";
 function Main() {
   return (
     <div class="content">
-      <CardBody />
+      <CardBody className="row g-3 mb-3"/>
       <GraphBody />
     </div>
   );

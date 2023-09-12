@@ -2,7 +2,7 @@ import React from "react";
 
 function Card3() {
   return (
-    <div class="col-md-6 col-xxl-3">
+    <div class="col-md-6 col-xxl-3" >
       <div class="card h-md-100 ecommerce-card-min-width">
         <div class="card-header pb-0">
           <h6 class="mb-0 mt-2 d-flex align-items-center">상위 품목</h6>
