@@ -4,7 +4,7 @@ import TableHead from "../components/TableHead";
 import TableBody from "../components/TableBody";
 import OrderListFooter from "../components/OrderListFooter";
 
-function Orders() {
+function Orders({ orders, loading }) {
   return (
     <div class="content">
       <div
@@ -17,7 +17,7 @@ function Orders() {
           <div class="table-responsive scrollbar">
             <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
               <TableHead />
-              <TableBody />
+              <TableBody orders={orders} loading={loading} />
             </table>
           </div>
         </div>
