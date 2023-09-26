@@ -6,6 +6,7 @@ function TableBody({ orders, loading }) {
       {loading && <div> loading... </div>}
 
       {orders.map((order) => (
+        // <TableColumn key={order.s_id} content={order.s_name}></TableColumn>
         <TableColumn key={order.id} content={order.title}></TableColumn>
       ))}
     </tbody>
