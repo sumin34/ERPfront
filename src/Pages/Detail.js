@@ -23,16 +23,22 @@ function Detail() {
               <div className='col-lg-12' style={{ position: 'relative', zIndex: 1 }}>
                 <div className='row g-3'>
                   <div className='col-md-6'>
-                    <Detailcard />
+                    <Detailcard cardName="Weekly Sales"
+                    rate="주간 판매량">
+                    </Detailcard>
                   </div>
                   <div className='col-md-6'>
-                    <Detailcard></Detailcard>
+                    <Detailcard 
+                    cardName="Product Share"
+                    rate="상품 점유율"></Detailcard>
                   </div>
                   <div className='col-md-6'>
-                    <Detailcard></Detailcard>
+                    <Detailcard cardName="Market Share"
+                    rate="시장 점유율"></Detailcard>
                   </div>
                   <div className='col-md-6'>
-                    <Detailcard></Detailcard>
+                    <Detailcard cardName="Total Order"
+                    rate="전체 판매량"></Detailcard>
                   </div>
                 </div>
               </div>
