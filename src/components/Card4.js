@@ -25,23 +25,6 @@ class Card4 extends Component {
   todayTimeFormal = () => {
     // 현재 년/월/일/시간
     let now = new Date();
-    let todayYear = now.getFullYear();
-    let todayMonth =
-      now.getMonth() + 1 > 9 ? now.getMonth() + 1 : "0" + (now.getMonth() + 1);
-    let todayDate = now.getDate() > 9 ? now.getDate() : "0" + now.getDate();
-    let hours;
-    if (now.getHours() < 12) {
-      hours = now.getHours() > 9 ? now.getHours() : "0" + now.getHours();
-      hours = "AM " + hours;
-    } else {
-      hours =
-        now.getHours() - 12 > 9
-          ? now.getHours() - 12
-          : "0" + (now.getHours() - 12);
-      hours = "PM " + hours;
-    }
-    let minutes =
-      now.getMinutes() > 9 ? now.getMinutes() : "0" + now.getMinutes();
     const week = [
       "일요일",
       "월요일",
@@ -53,18 +36,24 @@ class Card4 extends Component {
     ];
     let dayOfWeek = week[now.getDay()];
 
-    return (
-      todayYear +
-      "-" +
-      todayMonth +
-      "-" +
-      todayDate +
-      " " +
-      hours +
+    let formattedDate =
+    now.getFullYear() +
+    "-" +
+    (now.getMonth() + 1) +
+    "-" +
+    now.getDate();
+
+    let formattedTime =
+      (now.getHours() < 10 ? "0" : "") + now.getHours() +
       ":" +
-      minutes +
-      " " +
-      dayOfWeek
+      (now.getMinutes() < 10 ? "0" : "") +
+      now.getMinutes();
+
+    return (
+      <>
+        <p class="fs-3 fw-normal font-sans-serif text-primary mb-1 lh-1">{formattedDate}</p>
+        <p class="fs-0 fw-normal font-sans-serif text-primary mb-1 lh-1">{formattedTime} {dayOfWeek}</p>
+        </>
     );
   };
 
@@ -78,9 +67,7 @@ class Card4 extends Component {
           <div class="card-body d-flex flex-column justify-content-end">
             <div class="row">
               <div class="col">
-                <p class="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1">
                   {this.state.currentTime}
-                </p>
               </div>
               <div class="col-auto ps-0">
                 <div class="echart-bar-weekly-sales h-100"></div>

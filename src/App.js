@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./Pages/Main";
 import Orders from "./Pages/Orders";
+import Tete from "./Pages/Tete";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Test from "./Pages/Test";
@@ -40,6 +41,8 @@ function App() {
             element={<Orders orders={orders} loading={loading} />}
           />
           <Route path="/test" element={<Test />} />
+          <Route path="/tete" element={<Tete />} />
+          
         </Routes>
         <Footer />
       </div>
