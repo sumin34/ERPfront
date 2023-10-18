@@ -4,9 +4,9 @@ import GraphDropbar from "./GraphDropbar";
 
 function Detailgraph() {
     return (
-        <div class="card">
+        <div class="card" >
             <div class="card-header">
-                <div class="row flex-between-center g-0">
+                <div class="row flex-between-center">
                     <div class="col-auto">
                         <h6 class="mb-0">Total Sales</h6>
                     </div>
