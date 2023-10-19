@@ -21,6 +21,11 @@ function Header() {
               Orders
             </a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/productquantity">
+              재고현황
+            </a>
+          </li>
         </ul>
       </div>
       <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
