@@ -1,8 +1,10 @@
+import React from "react";
 import { ResponsiveLine } from '@nivo/line'
 
-function Circlegraph(){
-
-const MyResponsiveLine = ({ data  }) => (
+function Circlegraph(props){
+const {data,height}=props;
+const MyResponsiveLine = () => (
+    <div style={{height}}>
     <ResponsiveLine
         data={data}
         margin={{ top: 50, right: 110, bottom: 80, left: 80 }}
@@ -18,26 +20,30 @@ const MyResponsiveLine = ({ data  }) => (
         axisTop={null}
         axisRight={null}
         axisBottom={{
-            tickSize: 5,
-            tickPadding: 5,
+            tickSize: 0,
+            tickPadding: 15,
             tickRotation: 0,
             legend: 'transportation',
-            legendOffset: 36,
+            legendOffset: 52,
             legendPosition: 'middle'
         }}
         axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
+            tickSize: 0,
+            tickPadding: 11,
+            tickRotation: 1,
             legend: 'count',
-            legendOffset: -40,
+            legendOffset: -55,
             legendPosition: 'middle'
         }}
-        pointSize={10}
-        pointColor={{ theme: 'background' }}
-        pointBorderWidth={2}
+        lineWidth={4}
+        pointSize={8}
+        enableGridX={false}
+        pointColor="#ffffff" 
+        pointBorderWidth={3}
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}
+        areaBaselineValue={20}
+        areaOpacity={0.1}
         useMesh={true}
         legends={[
             {
@@ -66,6 +72,11 @@ const MyResponsiveLine = ({ data  }) => (
             }
         ]}
     />
+    </div>
 )
+
+return(
+    <MyResponsiveLine></MyResponsiveLine>
+);
 }
 export default Circlegraph;

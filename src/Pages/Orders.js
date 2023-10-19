@@ -21,7 +21,7 @@ function Orders() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get("http://10.10.10.244:2245/orders");
-      setOrders(response.data);
+      setOrders(response.data.orderVOList);
     };
     fetchData();
   }, []);

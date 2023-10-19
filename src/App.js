@@ -7,6 +7,7 @@ import Main from "./Pages/Main";
 import Orders from "./Pages/Orders";
 import Tete from "./Pages/Tete";
 import ProductQuantity from "./Pages/ProductQuantity";
+import Test from "./Pages/Test";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/productquantity" element={<ProductQuantity />} />
           <Route path="/tete" element={<Tete />} />
+          <Route path="/test" element={<Test />} />
+
         </Routes>
         <Footer />
       </div>

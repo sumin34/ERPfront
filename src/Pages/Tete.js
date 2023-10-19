@@ -1,44 +1,203 @@
 import React, { useState } from "react";
-import Chart from "react-apexcharts";
-import Graph from "../components/Graph";
+import Circlegraph from "../components/Circlegraph";
 
 function Tete() {
-  const [options, setOptions] = useState({
-    chart: {
-      id: "basic-bar"
-    },
-    xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-    }
-  });
-
-  const [series, setSeries] = useState([
+  const data = [
     {
-      name: "series-1",
-      data: [30, 40, 45, 50, 49, 60, 70, 91]
+      "id": "japan",
+      "color": "hsl(218, 70%, 50%)",
+      "data": [
+        {
+          "x": "plane",
+          "y": 110
+        },
+        {
+          "x": "helicopter",
+          "y": 174
+        },
+        {
+          "x": "boat",
+          "y": 231
+        },
+        {
+          "x": "train",
+          "y": 226
+        },
+        {
+          "x": "subway",
+          "y": 263
+        },
+        {
+          "x": "bus",
+          "y": 20
+        },
+        {
+          "x": "car",
+          "y": 241
+        },
+        {
+          "x": "moto",
+          "y": 15
+        },
+        {
+          "x": "bicycle",
+          "y": 4
+        },
+        {
+          "x": "horse",
+          "y": 222
+        },
+        {
+          "x": "skateboard",
+          "y": 114
+        },
+        {
+          "x": "others",
+          "y": 65
+        }
+      ]
+    },
+    
+    {
+      "id": "germany",
+      "color": "hsl(297, 70%, 50%)",
+      "data": [
+        {
+          "x": "plane",
+          "y": 294
+        },
+        {
+          "x": "helicopter",
+          "y": 126
+        },
+        {
+          "x": "boat",
+          "y": 59
+        },
+        {
+          "x": "train",
+          "y": 98
+        },
+        {
+          "x": "subway",
+          "y": 173
+        },
+        {
+          "x": "bus",
+          "y": 173
+        },
+        {
+          "x": "car",
+          "y": 86
+        },
+        {
+          "x": "moto",
+          "y": 153
+        },
+        {
+          "x": "bicycle",
+          "y": 88
+        },
+        {
+          "x": "horse",
+          "y": 136
+        },
+        {
+          "x": "skateboard",
+          "y": 219
+        },
+        {
+          "x": "others",
+          "y": 176
+        }
+      ]
+    },
+    {
+      "id": "norway",
+      "color": "hsl(224, 70%, 50%)",
+      "data": [
+        {
+          "x": "plane",
+          "y": 90
+        },
+        {
+          "x": "helicopter",
+          "y": 174
+        },
+        {
+          "x": "boat",
+          "y": 136
+        },
+        {
+          "x": "train",
+          "y": 271
+        },
+        {
+          "x": "subway",
+          "y": 211
+        },
+        {
+          "x": "bus",
+          "y": 196
+        },
+        {
+          "x": "car",
+          "y": 240
+        },
+        {
+          "x": "moto",
+          "y": 269
+        },
+        {
+          "x": "bicycle",
+          "y": 13
+        },
+        {
+          "x": "horse",
+          "y": 68
+        },
+        {
+          "x": "skateboard",
+          "y": 11
+        },
+        {
+          "x": "others",
+          "y": 11
+        }
+      ]
     }
-  ]);
+  ];
+
+  const graphHeight ="400px";
 
   return (
     <>
-    <div className="app">
-      <div className="row">
-        <div className="mixed-chart">
-          <Chart
-            options={options}
-            series={series}
-            type="bar"
-            width="500"
-          />
+    <div class="card" >
+            <div class="card-header">
+                <div class="row flex-between-center">
+                    <div class="col-auto">
+                        <h6 class="mb-0">Total Sales</h6>
+                    </div>
+                    <div class="col-auto">
+                        <div class="dropdown font-sans-serif btn-reveal-trigger">
+                        <GraphDropbar></GraphDropbar>
+                            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales-ecomm"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                    <Circlegraph
+    data={data}
+    height={graphHeight}
+  ></Circlegraph>
+                </div>
+            </div>
+            <div class="card-body pe-xxl-0">
+                <div class="echart-line-total-sales-ecommerce" data-echart-responsive="true" data-options='{"optionOne":"ecommerceLastMonth","optionTwo":"ecommercePrevYear"}'></div>
+            </div>
         </div>
-      </div>
-    </div>
-
-
-<div>
-    <Graph></Graph>
-</div>
-</>
+  
+  </>
   );
 }
 
