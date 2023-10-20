@@ -1,82 +1,90 @@
 import React from "react";
-import { ResponsiveLine } from '@nivo/line'
+import { ResponsivePie } from '@nivo/pie'
 
 function Circlegraph(props){
-const {data,height}=props;
-const MyResponsiveLine = () => (
+const {height}=props;
+const data=[
+    {
+      "id": "css",
+      "label": "css",
+      "value": 60,
+      "color": "hsl(269, 70%, 50%)"
+    },
+    {
+      "id": "stylus",
+      "label": "stylus",
+      "value": 86,
+      "color": "hsl(2, 70%, 50%)"
+    },
+    {
+      "id": "rust",
+      "label": "rust",
+      "value": 131,
+      "color": "hsl(120, 70%, 50%)"
+    }
+  ];
+const MyResponsivePie = () => (
+    <>
+    <p>qwerqrwrqwrqwr</p>
     <div style={{height}}>
-    <ResponsiveLine
+    <ResponsivePie
         data={data}
-        margin={{ top: 50, right: 110, bottom: 80, left: 80 }}
-        xScale={{ type: 'point' }}
-        yScale={{
-            type: 'linear',
-            min: 'auto',
-            max: 'auto',
-            stacked: true,
-            reverse: false
+        margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
+        sortByValue={true}
+        innerRadius={0.65}
+        padAngle={0.7}
+        cornerRadius={3}
+        activeOuterRadiusOffset={8}
+        colors={{ scheme: 'purple_blue' }}
+        borderWidth={2}
+        borderColor={{
+            from: 'color',
+            modifiers: [
+                [
+                    'darker',
+                    '0.4'
+                ]
+            ]
         }}
-        yFormat=" >-.2f"
-        axisTop={null}
-        axisRight={null}
-        axisBottom={{
-            tickSize: 0,
-            tickPadding: 15,
-            tickRotation: 0,
-            legend: 'transportation',
-            legendOffset: 52,
-            legendPosition: 'middle'
+        enableArcLinkLabels={false}
+        arcLinkLabelsSkipAngle={10}
+        arcLinkLabelsTextColor="#333333"
+        arcLinkLabelsThickness={2}
+        arcLinkLabelsColor={{ from: 'color' }}
+        enableArcLabels={false}
+        arcLabel="id"
+        arcLabelsRadiusOffset={0.65}
+        arcLabelsSkipAngle={10}
+        arcLabelsTextColor={{
+            from: 'color',
+            modifiers: [
+                [
+                    'darker',
+                    '1.8'
+                ]
+            ]
         }}
-        axisLeft={{
-            tickSize: 0,
-            tickPadding: 11,
-            tickRotation: 1,
-            legend: 'count',
-            legendOffset: -55,
-            legendPosition: 'middle'
-        }}
-        lineWidth={4}
-        pointSize={8}
-        enableGridX={false}
-        pointColor="#ffffff" 
-        pointBorderWidth={3}
-        pointBorderColor={{ from: 'serieColor' }}
-        pointLabelYOffset={-12}
-        areaBaselineValue={20}
-        areaOpacity={0.1}
-        useMesh={true}
         legends={[
             {
                 anchor: 'bottom-right',
                 direction: 'column',
                 justify: false,
-                translateX: 100,
+                translateX: 0,
                 translateY: 0,
-                itemsSpacing: 0,
-                itemDirection: 'left-to-right',
-                itemWidth: 80,
+                itemWidth: 100,
                 itemHeight: 20,
-                itemOpacity: 0.75,
-                symbolSize: 12,
-                symbolShape: 'circle',
-                symbolBorderColor: 'rgba(0, 0, 0, .5)',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemBackground: 'rgba(0, 0, 0, .03)',
-                            itemOpacity: 1
-                        }
-                    }
-                ]
+                itemsSpacing: 0,
+                symbolSize: 20,
+                itemDirection: 'left-to-right'
             }
         ]}
     />
     </div>
-)
+    </>
+);
 
 return(
-    <MyResponsiveLine></MyResponsiveLine>
+    <MyResponsivePie></MyResponsivePie>
 );
 }
 export default Circlegraph;

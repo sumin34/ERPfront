@@ -1,148 +1,83 @@
-import React, { useRef, useEffect, useState } from "react";
-import GraphDropbar from "./GraphDropbar";
-import Chart from "react-apexcharts";
+import React from "react";
+import { ResponsiveLine } from '@nivo/line'
 
-function Graph() {
-
-
-  // 데이터 배열 정의
-  var dates = [];
-
-  var dataSeries = [
-    {
-      date: "2014-01-01",
-      value: 200
-    },
-    {
-      date: "2014-01-02",
-      value: 103
-    },
-    {
-      date: "2014-01-03",
-      value: 304
-    },
-    {
-      date: "2014-01-04",
-      value: 107
-    },
-    {
-      date: "2014-01-05",
-      value: 339
-    },
-    {
-      date: "2014-01-06",
-      value: 115
-    },
-    {
-      date: "2014-01-07",
-      value: 144
-    },
-    
-    
-    // 나머지 데이터 포인트들 추가
-  ];
-
-  for (var i = 0; i < dataSeries.length; i++) {
-    var innerArr = [ dataSeries[i].value];
-    
-    dates.push(innerArr);
-  }
-
-  console.log(dates);
-  
-    const [series,setSeries] = useState([
-      {
-        name: "게임 1 판매량asdf",
-        data: [28, 29, 33, 36, 32, 32, 33]
-      },
-      {
-        name: "게임 2 판매량asdfsf",
-        data: dates
-      },
-      {
-        name:"게임 3 판매량asdf",
-        data : [0, 100, 150, 50, 80, 200, 190]
-      },
-      {
-        name:"게임 4 판매량asdfasdf",
-        data : [300,300,300,200,200,200,100]
-      }
-    ]);
-
-    // 데이터 및 옵션 설정
-    const [options,setOptions] = useState({
-      chart: {
-        height: '100px',
-        width : '100px',
-        type: 'line',
-        
-        toolbar: {
-          show: false
-        }
-      },
-      colors: ['#4374D9','#81D4FA', '#FEB019', '#546E7A', '#E91E63', '#FF9800'], //데이터 표기 색
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-          curve:'straight',
-          width:3
-      },
-      
-      title: {
-        text: '제품별 판매량',
-        align: 'left'
-      },
-      grid: {
-        borderColor: '#e7e7e7',
-        row: {
-          opacity: 0.5
-        },
-      },
-      markers: {
-        size: 6,
-      },
-      xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-        scolors:'#e7e7e7'
-      },
-      yaxis: {
-        title: {
-        },
-        min: 5, //최소 최대 설정
-        max: 400
-      },
-      legend: {
-        position: 'top',
-        horizontalAlign: 'right',
-        floating: true,
-        offsetY: -25,
-        offsetX: -5
-      },
-    });
-
-
-  return (
-    <div className="card">
-        <div className="card-header">
-          <div className="row flex-between-center g-0">
-            <div className="col-auto">
-              <h6 className="mb-0">Total Sales</h6>
-            </div>
-            <div className="col-auto d-flex">
-              <GraphDropbar />
-            </div>
-          </div>
-        </div>
-        <div>
-          <Chart
-            options={options}
-            series={series}
-          ></Chart>
-        </div>
+function Graph(props){
+const {data,height,legend}=props;
+const MyResponsiveLine = () => (
+    <div style={{height}}>
+    <ResponsiveLine
+        data={data}
+        margin={{ top: 10, right: 110, bottom: 100, left: 90 }}
+        xScale={{ type: 'point' }}
+        yScale={{
+            type: 'linear',
+            min: 'auto',
+            max: 'auto',
+            stacked: true,
+            reverse: false
+        }}
+        yFormat=" >-.2f"
+        axisTop={null}
+        axisRight={null}
+        axisBottom={{
+            tickSize: 0,
+            tickPadding: 15,
+            tickRotation: 0,
+            legend,
+            legendOffset: 52,
+            legendPosition: 'middle'
+        }}
+        axisLeft={{
+            tickSize: 0,
+            tickPadding: 11,
+            tickRotation: 1,
+            legend: 'count',
+            legendOffset: -55,
+            legendPosition: 'middle'
+        }}
+        lineWidth={4}
+        pointSize={8}
+        enableGridX={false}
+        pointColor="#ffffff" 
+        colors={{ scheme: 'paired' }}
+        pointBorderWidth={3}
+        pointBorderColor={{ from: 'serieColor' }}
+        pointLabelYOffset={-12}
+        areaBaselineValue={20}
+        areaOpacity={0.1}
+        useMesh={true}
+        legends={[
+            {
+                anchor: 'bottom-right',
+                direction: 'column',
+                justify: false,
+                translateX: 100,
+                translateY: 0,
+                itemsSpacing: 0,
+                itemDirection: 'left-to-right',
+                itemWidth: 80,
+                itemHeight: 20,
+                itemOpacity: 0.75,
+                symbolSize: 12,
+                symbolShape: 'circle',
+                symbolBorderColor: 'rgba(0, 0, 0, .5)',
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemBackground: 'rgba(0, 0, 0, .03)',
+                            itemOpacity: 1
+                        }
+                    }
+                ]
+            }
+        ]}
+    />
     </div>
-    
-  );
-}
+)
 
+return(
+    <MyResponsiveLine></MyResponsiveLine>
+);
+}
 export default Graph;

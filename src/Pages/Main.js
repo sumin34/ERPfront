@@ -60,7 +60,7 @@ function Main() {
         }
       ]
     },
-    
+
     {
       "id": "germany",
       "color": "hsl(297, 70%, 50%)",
@@ -171,55 +171,40 @@ function Main() {
     }
   ];
 
-  const height="400px";
+  const height = "400px";
 
+  const legend = "일별 판매량";
   return (
     <>
-    <div class="content">
-      <CardBody className="row g-3 mb-3"/>
-      <div class="card" >
-<div class="card-header">
-    <div class="row flex-between-center">
-        <div class="col-auto">
-            <h6 class="mb-0">Total Sales</h6>
-        </div>
-        <div class="col-auto">
-            <div class="dropdown font-sans-serif btn-reveal-trigger">
-            <GraphDropbar></GraphDropbar>
-                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales-ecomm"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+      <div class="content">
+        <CardBody className="row g-3 mb-3" />
+        <div class="card" >
+          <div class="card-header">
+            <div class="row flex-between-center">
+              <div class="col-auto">
+                <h6 class="mb-0">Total Sales</h6>
+              </div>
+              <div class="col-auto">
+                <div class="dropdown font-sans-serif btn-reveal-trigger">
+                  <GraphDropbar></GraphDropbar>
+                  <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales-ecomm"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
                     <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+          <Graph
+            data={data}
+            height={height}
+            legend={legend}
+          />
         </div>
-    </div>
-</div>
-<Circlegraph 
-      data={data}
-      height={height}
-      />
-</div>
-<div class="card" >
-<div class="card-header">
-    <div class="row flex-between-center">
-        <div class="col-auto">
-            <h6 class="mb-0">Total Sales</h6>
-        </div>
-        <div class="col-auto">
-            <div class="dropdown font-sans-serif btn-reveal-trigger">
-            <GraphDropbar></GraphDropbar>
-                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales-ecomm"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                    <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<Graph/>
-</div>
-    </div>
+
+      </div>
 
 
-</>
+    </>
   );
 }
 

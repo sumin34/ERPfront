@@ -7,6 +7,7 @@ function Card1() {
         <div class="card-header pb-0">
           <h6 class="mb-0 mt-2 d-flex align-items-center">판매량</h6>
         </div>
+
         <div class="card-body d-flex flex-column justify-content-end">
           <div class="row">
             <div class="col">
@@ -17,9 +18,20 @@ function Card1() {
             </div>
             <div class="col-auto ps-0">
               <div class="echart-bar-weekly-sales h-100"></div>
+                <div style={{
+                  position: "relative",
+                  width: "136px",
+                  height: "61px",
+                  padding: "0px",
+                  margin: "0px",
+                  borderWidth: "0px",
+                  cursor: "default"}}>
+                    
+                </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

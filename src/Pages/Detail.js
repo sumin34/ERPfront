@@ -9,10 +9,127 @@ import CardBody from '../components/CardBody';
 import Detailcard from '../components/Detailcard';
 import Cardcontent from '../elements/Cardcontent';
 import Detailgraph from '../components/Detailgraph';
+import Circlegraph from '../components/Circlegraph';
+import Graph from '../components/Graph';
 
 
 function Detail() {
 
+  const data = [
+    {
+      "id": "japan",
+      "color": "hsl(218, 70%, 50%)",
+      "data": [
+        {
+          "x": "plane",
+          "y": 110
+        },
+        {
+          "x": "helicopter",
+          "y": 174
+        },
+        {
+          "x": "boat",
+          "y": 231
+        },
+        {
+          "x": "train",
+          "y": 226
+        },
+        {
+          "x": "subway",
+          "y": 263
+        },
+        {
+          "x": "bus",
+          "y": 20
+        },
+        {
+          "x": "car",
+          "y": 241
+        },
+        {
+          "x": "moto",
+          "y": 15
+        },
+        {
+          "x": "bicycle",
+          "y": 4
+        },
+        {
+          "x": "horse",
+          "y": 222
+        },
+        {
+          "x": "skateboard",
+          "y": 114
+        },
+        {
+          "x": "others",
+          "y": 65
+        }
+      ]
+    },
+    
+    {
+      "id": "germany",
+      "color": "hsl(297, 70%, 50%)",
+      "data": [
+        {
+          "x": "plane",
+          "y": 294
+        },
+        {
+          "x": "helicopter",
+          "y": 126
+        },
+        {
+          "x": "boat",
+          "y": 59
+        },
+        {
+          "x": "train",
+          "y": 98
+        },
+        {
+          "x": "subway",
+          "y": 173
+        },
+        {
+          "x": "bus",
+          "y": 173
+        },
+        {
+          "x": "car",
+          "y": 86
+        },
+        {
+          "x": "moto",
+          "y": 153
+        },
+        {
+          "x": "bicycle",
+          "y": 88
+        },
+        {
+          "x": "horse",
+          "y": 136
+        },
+        {
+          "x": "skateboard",
+          "y": 219
+        },
+        {
+          "x": "others",
+          "y": 176
+        }
+      ]
+    }
+  ];
+
+  const height="400px";
+
+  const legend="일별 판매량";
   return (
     <>
       <div class="container" data-layout="container">
@@ -59,9 +176,28 @@ function Detail() {
             </div>
           </div>
         </div>
-        <Detailgraph></Detailgraph>
-        <GraphDropbar></GraphDropbar>
-        <GraphChart></GraphChart>
+        <div class="card" >
+<div class="card-header">
+    <div class="row flex-between-center">
+        <div class="col-auto">
+            <h6 class="mb-0">Total Sales</h6>
+        </div>
+        <div class="col-auto">
+            <div class="dropdown font-sans-serif btn-reveal-trigger">
+            <GraphDropbar></GraphDropbar>
+                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales-ecomm"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                    <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<Graph 
+      data={data}
+      height={height}
+      legend={legend}
+      />
+</div>
       </div>
     </>
   );
