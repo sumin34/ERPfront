@@ -6169,6 +6169,15 @@ textarea.form-control-lg {
     color: var(--falcon-card-color)
 }
 
+.card-body-graph {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0.5rem var(--falcon-card-spacer-y) 0.5rem var(--falcon-card-spacer-x);
+    color: var(--falcon-card-color)
+}
+
+
 .card-title {
     margin-bottom: var(--falcon-card-title-spacer-y);
     color: var(--falcon-card-title-color)

@@ -7,9 +7,16 @@ import Card4 from "./Card4";
 function CardBody({className}) {
   return (
     <div class={className}>
-      <Card1 />
-      <Card2 />
-      <Card3 />
+      <Card1 
+      title_info="예상 매출액"
+      show_info="47mil"/>
+      <Card1 
+      title_info="판매 순위"
+      show_info="제일높은제품"
+      selectedGraph="circle"/>
+      <Card1 
+      title_info="월 매출액"
+      show_info="500mil"/>
       <Card4 />
     </div>
   );

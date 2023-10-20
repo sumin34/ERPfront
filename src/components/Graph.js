@@ -38,6 +38,7 @@ const MyResponsiveLine = () => (
         lineWidth={4}
         pointSize={8}
         enableGridX={false}
+        //enableGridY={false}
         pointColor="#ffffff" 
         colors={{ scheme: 'paired' }}
         pointBorderWidth={3}

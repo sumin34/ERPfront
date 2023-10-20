@@ -25,18 +25,21 @@ const data=[
   ];
 const MyResponsivePie = () => (
     <>
-    <p>qwerqrwrqwrqwr</p>
     <div style={{height}}>
     <ResponsivePie
         data={data}
-        margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
+        margin={{ top: 3, right: 10, bottom: 20, left: 5 }}
         sortByValue={true}
+        fit={true}
         innerRadius={0.65}
+
+        
+
         padAngle={0.7}
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         colors={{ scheme: 'purple_blue' }}
-        borderWidth={2}
+        borderWidth={1}
         borderColor={{
             from: 'color',
             modifiers: [
@@ -66,16 +69,27 @@ const MyResponsivePie = () => (
         }}
         legends={[
             {
-                anchor: 'bottom-right',
+                anchor: 'right',
                 direction: 'column',
                 justify: false,
-                translateX: 0,
-                translateY: 0,
-                itemWidth: 100,
-                itemHeight: 20,
+                translateX: 50,
+                translateY: 10,
                 itemsSpacing: 0,
-                symbolSize: 20,
-                itemDirection: 'left-to-right'
+                itemWidth: 100,
+                itemHeight: 18,
+                itemTextColor: '#999',
+                itemDirection: 'left-to-right',
+                itemOpacity: 1,
+                symbolSize: 18,
+                symbolShape: 'circle',
+                effects: [
+                    {
+                        on: 'hover',
+                        style: {
+                            itemTextColor: '#000'
+                        }
+                    }
+                ]
             }
         ]}
     />
