@@ -15,22 +15,23 @@ import axios from "axios";
 function ProductQuantity() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [product, setproduct] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [totalElements, setTotalElements] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        //"https://jsonplaceholder.typicode.com/posts"
         "http://10.10.10.244:2245/items?" +
           "page=" +
-          page +
+          (page + 1) +
           "&size=" +
           rowsPerPage
       );
-      setproduct(response.data.content);
+      setProduct(response.data.content);
+      setTotalElements(response.data.totalElements);
     };
     fetchData();
-  }, []);
+  }, [page, rowsPerPage]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -74,18 +75,16 @@ function ProductQuantity() {
             </TableHead>
 
             <TableBody class="list">
-              {product
-                .slice(page * rowsPerPage, (page + 1) * rowsPerPage)
-                .map(({ item_Name, quantity }, i) => (
-                  <TableRow key={i + 1}>
-                    <TableCell class="order py-2 align-middle white-space-nowrap">
-                      {item_Name}
-                    </TableCell>
-                    <TableCell class="order py-2 align-middle white-space-nowrap">
-                      {quantity}
-                    </TableCell>
-                  </TableRow>
-                ))}
+              {product.map(({ item_Name, quantity }, i) => (
+                <TableRow key={i + 1}>
+                  <TableCell class="order py-2 align-middle white-space-nowrap">
+                    {item_Name}
+                  </TableCell>
+                  <TableCell class="order py-2 align-middle white-space-nowrap">
+                    {quantity}
+                  </TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </div>
@@ -93,7 +92,7 @@ function ProductQuantity() {
       <TableFooter>
         <TableRow>
           <TablePagination
-            count={product.length}
+            count={totalElements}
             page={page}
             rowsPerPage={rowsPerPage}
             onChangePage={handleChangePage}

@@ -11,14 +11,14 @@ function Header() {
       </a>
       <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
         <ul class="navbar-nav" data-top-nav-dropdowns="data-top-nav-dropdowns">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/orders">
-              판매 내역
-            </a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="/detail">
               상세 내역
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/purchases">
+              판매 내역
             </a>
           </li>
           <li class="nav-item dropdown">
