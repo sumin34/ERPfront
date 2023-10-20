@@ -12,22 +12,22 @@ import {
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Orders() {
+function Purchases() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [orders, setOrders] = useState([]);
+  const [product, setProduct] = useState([]);
   const [totalElements, setTotalElements] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "http://10.10.10.244:2245/orders?" +
+        "http://10.10.10.244:2245/purchases?" +
           "page=" +
           (page + 1) +
           "&size=" +
           rowsPerPage
       );
-      setOrders(response.data.content);
+      setProduct(response.data.content);
       setTotalElements(response.data.totalElements);
     };
     fetchData();
@@ -47,7 +47,7 @@ function Orders() {
       <div class="card-header">
         <div class="row flex-between-center">
           <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-            <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">발주 내역</h5>
+            <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">판매 내역</h5>
           </div>
         </div>
       </div>
@@ -65,7 +65,6 @@ function Orders() {
                 >
                   날짜
                 </TableCell>
-
                 <TableCell
                   class="text-900 sort pe-1 align-middle white-space-nowrap"
                   data-sort="userId"
@@ -82,37 +81,30 @@ function Orders() {
                   class="text-900 sort pe-1 align-middle white-space-nowrap"
                   data-sort="userId"
                 >
-                  발주 상태
-                </TableCell>
-                <TableCell
-                  class="text-900 sort pe-1 align-middle white-space-nowrap"
-                  data-sort="userId"
-                >
                   종합
                 </TableCell>
               </TableRow>
             </TableHead>
 
             <TableBody class="list">
-              {orders.map(({ date, item, order_State }, i) => (
-                <TableRow key={i + 1}>
-                  <TableCell class="order py-2 align-middle white-space-nowrap">
-                    {date}
-                  </TableCell>
-                  <TableCell class="order py-2 align-middle white-space-nowrap">
-                    {item.item_Name}
-                  </TableCell>
-                  <TableCell class="order py-2 align-middle white-space-nowrap">
-                    {item.quantity}
-                  </TableCell>
-                  <TableCell class="order py-2 align-middle white-space-nowrap">
-                    {order_State}
-                  </TableCell>
-                  <TableCell class="order py-2 align-middle white-space-nowrap">
-                    {item.price}
-                  </TableCell>
-                </TableRow>
-              ))}
+              {product.map(
+                ({ createdat, item, purchase_Quantity, purchase_Price }, i) => (
+                  <TableRow key={i + 1}>
+                    <TableCell class="order py-2 align-middle white-space-nowrap">
+                      {createdat}
+                    </TableCell>
+                    <TableCell class="order py-2 align-middle white-space-nowrap">
+                      {item.item_Name}
+                    </TableCell>
+                    <TableCell class="order py-2 align-middle white-space-nowrap">
+                      {purchase_Quantity}
+                    </TableCell>
+                    <TableCell class="order py-2 align-middle white-space-nowrap">
+                      {purchase_Price}
+                    </TableCell>
+                  </TableRow>
+                )
+              )}
             </TableBody>
           </Table>
         </div>
@@ -132,4 +124,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default Purchases;
