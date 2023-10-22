@@ -21,7 +21,7 @@ function ProductQuantity() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "http://10.10.10.244:2245/items?" +
+        "http://3.39.191.105:8080/items?" +
           "page=" +
           (page + 1) +
           "&size=" +

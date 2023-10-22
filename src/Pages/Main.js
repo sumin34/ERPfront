@@ -1,69 +1,104 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardBody from "../components/CardBody";
 import Graph from "../components/Graph";
-import Circlegraph from "../components/Circlegraph";
 import GraphDropbar from "../components/GraphDropbar";
+import axios from "axios";
 
 function Main() {
+  const [salesRanking, setSalesRanking] = useState([]);
+  const [previousSales, setPreviousSales] = useState(0);
+  const [expectedSales, setExpectedSales] = useState(0);
+  const [dataCircle, setDataCircle] = useState([
+    {
+      "id": "",
+      "label": "",
+      "value": 0,
+      "color": ""
+    },
+    {
+      "id": "",
+      "label": "",
+      "value": 0,
+      "color": ""
+    },
+    {
+      "id": "",
+      "label": "",
+      "value": 0,
+      "color": ""
+    },
+    {
+      "id": "",
+      "label": "",
+      "value": 0,
+      "color": ""
+    },
+    {
+      "id": "",
+      "label": "",
+      "value": 0,
+      "color": ""
+    }
+  ]);
+
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get("http://3.39.191.105:8080/");
+      setExpectedSales(response.data.expectedSales);
+      const fetchedSalesRanking = response.data.salesRanking.map(item => item.item_Name);
+      setSalesRanking(fetchedSalesRanking);
+      setPreviousSales(response.data.previousSales);
+
+      console.log(fetchedSalesRanking);
+      if (fetchedSalesRanking.length >= 5) {
+        const newDataCircle = [
+          {
+            "id": fetchedSalesRanking[0],
+            "label": fetchedSalesRanking[0],
+            "value": 100,
+            "color": "hsl(269, 70%, 50%)"
+          },
+          {
+            "id": fetchedSalesRanking[1],
+            "label": fetchedSalesRanking[1],
+            "value": 60,
+            "color": "hsl(2, 70%, 50%)"
+          },
+          {
+            "id": fetchedSalesRanking[2],
+            "label": fetchedSalesRanking[2],
+            "value": 40,
+            "color": "hsl(120, 70%, 50%)"
+          },
+          {
+            "id": fetchedSalesRanking[3],
+            "label":fetchedSalesRanking[3],
+            "value": 30,
+            "color": "hsl(120, 70%, 50%)"
+          },
+          {
+            "id": fetchedSalesRanking[4],
+            "label": fetchedSalesRanking[4],
+            "value": 20,
+            "color": "hsl(120, 70%, 50%)"
+          }
+        ];
+        console.log("newDateCircle : ", newDataCircle);
+
+        setDataCircle(newDataCircle);
+        console.log("dateCircle : ", dataCircle);
+      }
+    };
+    fetchData();
+
+  }, []);
+
+
   const data = [
     {
-      "id": "japan",
-      "color": "hsl(218, 70%, 50%)",
-      "data": [
-        {
-          "x": "plane",
-          "y": 110
-        },
-        {
-          "x": "helicopter",
-          "y": 174
-        },
-        {
-          "x": "boat",
-          "y": 231
-        },
-        {
-          "x": "train",
-          "y": 226
-        },
-        {
-          "x": "subway",
-          "y": 263
-        },
-        {
-          "x": "bus",
-          "y": 20
-        },
-        {
-          "x": "car",
-          "y": 241
-        },
-        {
-          "x": "moto",
-          "y": 15
-        },
-        {
-          "x": "bicycle",
-          "y": 4
-        },
-        {
-          "x": "horse",
-          "y": 222
-        },
-        {
-          "x": "skateboard",
-          "y": 114
-        },
-        {
-          "x": "others",
-          "y": 65
-        }
-      ]
-    },
-
-    {
       "id": "germany",
-      "color": "hsl(297, 70%, 50%)",
       "data": [
         {
           "x": "plane",
@@ -100,24 +135,11 @@ function Main() {
         {
           "x": "bicycle",
           "y": 88
-        },
-        {
-          "x": "horse",
-          "y": 136
-        },
-        {
-          "x": "skateboard",
-          "y": 219
-        },
-        {
-          "x": "others",
-          "y": 176
         }
       ]
     },
     {
       "id": "norway",
-      "color": "hsl(224, 70%, 50%)",
       "data": [
         {
           "x": "plane",
@@ -154,30 +176,29 @@ function Main() {
         {
           "x": "bicycle",
           "y": 13
-        },
-        {
-          "x": "horse",
-          "y": 68
-        },
-        {
-          "x": "skateboard",
-          "y": 11
-        },
-        {
-          "x": "others",
-          "y": 11
         }
       ]
     }
   ];
 
+  console.log("******************main.js datacircle = ", dataCircle);
+  console.log("#################main.js expectedSa;es = ", expectedSales);
+  console.log("@@@@@@@@@main.js salesRanking[0] = ", salesRanking[0]);
+
+
   const height = "400px";
 
   const legend = "일별 판매량";
   return (
+    
     <>
-      <div class="content">
-        <CardBody className="row g-3 mb-3" />
+      <div className="content">
+        <CardBody
+          className="row g-3 mb-3"
+          expectedSales={expectedSales}
+          // salesRanking={dataCircle}
+          previousSales={previousSales}
+        />
         <div class="card" >
           <div class="card-header">
             <div class="row flex-between-center">

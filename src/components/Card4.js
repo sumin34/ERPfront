@@ -69,9 +69,6 @@ class Card4 extends Component {
               <div class="col">
                   {this.state.currentTime}
               </div>
-              <div class="col-auto ps-0">
-                <div class="echart-bar-weekly-sales h-100"></div>
-              </div>
             </div>
           </div>
         </div>

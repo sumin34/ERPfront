@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import Circlegraph from "./Circlegraph";
-function Card1(props) {
-  const {title_info, show_info,selectedGraph}=props;
 
+
+function Card1(title_info, show_info, selectedGraph, salesRanking) {
   const height = "80px";
+  //console.log(" card 1 salesRanking : " + salesRanking);
 
-  const renderSelectedGraph = () => {
-    if(selectedGraph ==='default'){
-      return <p>reslkjla;shfh</p>;
-    }else if (selectedGraph === 'circle') {
-      return <Circlegraph height={height} />;
-    // } else if (selectedGraph === 'halfcircle') {
-    //   return <Halfcirclegraph height={height} />;
-    // } else if (selectedGraph === 'line') {
-    //   return <Linegraph height={height} />;
-     }
-  }
+  // const renderSelectedGraph = () => {
+  //   if (selectedGraph === 'default') {
+  //     return <p>reslkjla;shfh</p>;
+  //   } else if (selectedGraph === 'circle') {
+  //     return <Circlegraph
+  //       height={height}
+  //       data={salesRanking} />;
+  //     // } else if (selectedGraph === 'halfcircle') {
+  //     //   return <Halfcirclegraph height={height} />;
+  //     // } else if (selectedGraph === 'line') {
+  //     //   return <Linegraph height={height} />;
+  //   }
+  // }
 
   return (
     <div class="col-md-6 col-xxl-3">
@@ -27,16 +30,13 @@ function Card1(props) {
           <div class="row">
             <div class="col">
               <p class="font-sans-serif lh-1 mb-1 fs-4">{show_info}</p>
+              <div style={{ width: "200px" }}>
+                {/* {renderSelectedGraph()} */}
+              </div>
               <span class="badge badge-subtle-success rounded-pill fs--2">
-                +3.5%
               </span>
             </div>
             <div class="col-auto ps-0">
-              <div style={{ width: "200px" }}>
-                  {renderSelectedGraph()}
-              </div>
-
-              
             </div>
           </div>
         </div>

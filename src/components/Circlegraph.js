@@ -1,28 +1,40 @@
 import React from "react";
 import { ResponsivePie } from '@nivo/pie'
 
-function Circlegraph(props){
-const {height}=props;
-const data=[
-    {
-      "id": "css",
-      "label": "css",
-      "value": 60,
-      "color": "hsl(269, 70%, 50%)"
-    },
-    {
-      "id": "stylus",
-      "label": "stylus",
-      "value": 86,
-      "color": "hsl(2, 70%, 50%)"
-    },
-    {
-      "id": "rust",
-      "label": "rust",
-      "value": 131,
-      "color": "hsl(120, 70%, 50%)"
-    }
-  ];
+function Circlegraph(height,salesRanking,data){
+console.log("circlegraph salesRanking : "+salesRanking);
+// const data=[
+//     {
+//       "id": salesRanking[0],
+//       "label": salesRanking[0],
+//       "value": 100,
+//       "color": "hsl(269, 70%, 50%)"
+//     },
+//     {
+//       "id": salesRanking[1],
+//       "label": salesRanking[1],
+//       "value": 60,
+//       "color": "hsl(2, 70%, 50%)"
+//     },
+//     {
+//       "id": salesRanking[2],
+//       "label": salesRanking[2],
+//       "value": 40,
+//       "color": "hsl(120, 70%, 50%)"
+//     },
+//     {
+//       "id": salesRanking[3],
+//       "label": salesRanking[3],
+//       "value": 30,
+//       "color": "hsl(120, 70%, 50%)"
+//     },
+//     {
+//       "id": salesRanking[4],
+//       "label": salesRanking[4],
+//       "value": 20,
+//       "color": "hsl(120, 70%, 50%)"
+//     }
+//   ];
 const MyResponsivePie = () => (
     <>
     <div style={{height}}>
