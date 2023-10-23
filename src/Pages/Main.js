@@ -8,38 +8,7 @@ function Main() {
   const [salesRanking, setSalesRanking] = useState([]);
   const [previousSales, setPreviousSales] = useState(0);
   const [expectedSales, setExpectedSales] = useState(0);
-  const [dataCircle, setDataCircle] = useState([
-    {
-      "id": "",
-      "label": "",
-      "value": 0,
-      "color": ""
-    },
-    {
-      "id": "",
-      "label": "",
-      "value": 0,
-      "color": ""
-    },
-    {
-      "id": "",
-      "label": "",
-      "value": 0,
-      "color": ""
-    },
-    {
-      "id": "",
-      "label": "",
-      "value": 0,
-      "color": ""
-    },
-    {
-      "id": "",
-      "label": "",
-      "value": 0,
-      "color": ""
-    }
-  ]);
+  const [dataCircle, setDataCircle] = useState([]);
 
 
 
@@ -50,8 +19,11 @@ function Main() {
       const fetchedSalesRanking = response.data.salesRanking.map(item => item.item_Name);
       setSalesRanking(fetchedSalesRanking);
       setPreviousSales(response.data.previousSales);
+      setDataCircle(response.data.salesRanking);
+      
 
-      console.log(fetchedSalesRanking);
+
+      
       if (fetchedSalesRanking.length >= 5) {
         const newDataCircle = [
           {
@@ -86,9 +58,7 @@ function Main() {
           }
         ];
         console.log("newDateCircle : ", newDataCircle);
-
         setDataCircle(newDataCircle);
-        console.log("dateCircle : ", dataCircle);
       }
     };
     fetchData();
@@ -181,9 +151,11 @@ function Main() {
     }
   ];
 
-  console.log("******************main.js datacircle = ", dataCircle);
-  console.log("#################main.js expectedSa;es = ", expectedSales);
-  console.log("@@@@@@@@@main.js salesRanking[0] = ", salesRanking[0]);
+  console.log("circle : ",dataCircle);
+
+  // console.log("******************main.js datacircle = ", dataCircle);
+  // console.log("#################main.js expectedSa;es = ", expectedSales);
+  // console.log("@@@@@@@@@main.js salesRanking[0] = ", salesRanking[0]);
 
 
   const height = "400px";
@@ -193,12 +165,13 @@ function Main() {
     
     <>
       <div className="content">
+        {dataCircle.length>4 && 
         <CardBody
           className="row g-3 mb-3"
           expectedSales={expectedSales}
-          // salesRanking={dataCircle}
+          dataCircle={dataCircle}
           previousSales={previousSales}
-        />
+        />}
         <div class="card" >
           <div class="card-header">
             <div class="row flex-between-center">
@@ -223,8 +196,6 @@ function Main() {
         </div>
 
       </div>
-
-
     </>
   );
 }

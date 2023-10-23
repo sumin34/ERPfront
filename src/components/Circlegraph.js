@@ -1,7 +1,7 @@
 import React from "react";
 import { ResponsivePie } from '@nivo/pie'
 
-function Circlegraph(height,salesRanking,data){
+function Circlegraph({height,salesRanking,data}){
 console.log("circlegraph salesRanking : "+salesRanking);
 // const data=[
 //     {
