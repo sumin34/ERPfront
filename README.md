@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+<h1 align="center">~~~ 프로젝트 프론트엔드 💻 </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## 🛠️ 기술 스택
+[[뱃지 만드는 방법은 여기 참조]](https://velog.io/@shlee327/shield.io-%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%EB%B0%B0%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0)
 
-### `npm start`
+각 프로젝트의 뱃지는 프로젝트에서 사용한 기술들만 나열  
+현재는 많이 쓸만한 것들을 그냥 다 추가해둔 상태
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=round&logo=HTML5&logoColor=white" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=round&logo=CSS3&logoColor=white" /> <img src="https://img.shields.io/badge/JS-F7DF1E?style=round&logo=JavaScript&logoColor=white" /> <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=round&logo=Spring&logoColor=white" /> <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=round&logo=SpringSecurity&logoColor=white" /> <img src="https://img.shields.io/badge/React.js-61DAFB?style=round&logo=React&logoColor=white" /> <img src="https://img.shields.io/badge/Redux-764ABC?style=round&logo=Redux&logoColor=white" />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🤹🏻 기술 스택 선정 이유
+- React : 리액트가 유명하다더라
+- Redux : 상태 관리
+- axios : 비동기통신할라고 한거지 뭐
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📌 프로젝트 목표
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+리액트를 활용해서 상품과 ~~~~~~~~와 판매량 예측을 실시간으로 모니터링할 수 있는 대시보드를 구현하였습니다! 
+리액트를 활용하면서 복잡한 상태 관리는 리덕스로 ~~~~~~    SPA ~~~~~~ 비동기 통신 ~~~~
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 📄 UI/UX 설계도
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[[설계도 확인할 수 있는 링크 또는 그림]](www.naver.com)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔍 Overview
 
-## Learn More
+### 1. 사용자 회원 가입 및 로그인 페이지
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<center>
+    <img src="./img/pic2.png" />
+</center>
+비동기 통신을 활용해서 백엔드에 어쩌고 어쩌고 JWT 토클을 어디에 저장하고 설명설명
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+### 2. 대시보드 페이지
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<center>
+    <img src="./img/pic1.png" />
+</center>
+어떤 어떤 어떤 걸 실시간으로 확인할 수 있고 제어할 수 있고~~~~
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br>
