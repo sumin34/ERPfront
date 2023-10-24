@@ -14,7 +14,7 @@ function Main() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://3.39.191.105:8080/");
+      const response = await axios.get("http://3.35.21.109/api");
       setExpectedSales(response.data.expectedSales);
       const fetchedSalesRanking = response.data.salesRanking.map(item => item.item_Name);
       setSalesRanking(fetchedSalesRanking);

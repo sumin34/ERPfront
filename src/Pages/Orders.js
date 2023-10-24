@@ -21,7 +21,7 @@ function Orders() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "http://3.39.191.105:8080/orders?" +
+        "http://3.35.21.109/api/orders?" +
           "page=" +
           (page + 1) +
           "&size=" +
