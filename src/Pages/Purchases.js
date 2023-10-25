@@ -21,7 +21,7 @@ function Purchases() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "http://3.35.21.109/api/purchases?" +
+        "http://3.35.21.109/api/purchase?" +
           "page=" +
           (page + 1) +
           "&size=" +
@@ -41,6 +41,10 @@ function Purchases() {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
+  const formatCurrency= (value)=>{
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+  }
 
   return (
     <TableContainer class="card mb-3" component={Paper}>
@@ -88,10 +92,10 @@ function Purchases() {
 
             <TableBody class="list">
               {product.map(
-                ({ createdat, item, purchase_Quantity, purchase_Price }, i) => (
+                ({ createdate, item, purchase_Quantity, purchase_Price }, i) => (
                   <TableRow key={i + 1}>
                     <TableCell class="order py-2 align-middle white-space-nowrap">
-                      {createdat}
+                      {createdate}
                     </TableCell>
                     <TableCell class="order py-2 align-middle white-space-nowrap">
                       {item.item_Name}
@@ -100,7 +104,7 @@ function Purchases() {
                       {purchase_Quantity}
                     </TableCell>
                     <TableCell class="order py-2 align-middle white-space-nowrap">
-                      {purchase_Price}
+                      {formatCurrency(purchase_Quantity*item.price)}
                     </TableCell>
                   </TableRow>
                 )

@@ -42,6 +42,10 @@ function Orders() {
     setPage(0);
   };
 
+  const formatCurrency= (value)=>{
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+  }
+
   return (
     <TableContainer class="card mb-3" component={Paper}>
       <div class="card-header">
@@ -94,7 +98,7 @@ function Orders() {
             </TableHead>
 
             <TableBody class="list">
-              {orders.map(({ date, item, order_State }, i) => (
+              {orders.map(({ date, item, order_State,order_Quantity }, i) => (
                 <TableRow key={i + 1}>
                   <TableCell class="order py-2 align-middle white-space-nowrap">
                     {date}
@@ -103,13 +107,13 @@ function Orders() {
                     {item.item_Name}
                   </TableCell>
                   <TableCell class="order py-2 align-middle white-space-nowrap">
-                    {item.quantity}
+                    {order_Quantity}
                   </TableCell>
                   <TableCell class="order py-2 align-middle white-space-nowrap">
                     {order_State}
                   </TableCell>
                   <TableCell class="order py-2 align-middle white-space-nowrap">
-                    {item.price}
+                    {formatCurrency(item.price * order_Quantity)}
                   </TableCell>
                 </TableRow>
               ))}

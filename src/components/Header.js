@@ -17,7 +17,7 @@ function Header() {
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/purchases">
+            <a class="nav-link dropdown-toggle" href="/purchase">
               판매 내역
             </a>
           </li>

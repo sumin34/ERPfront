@@ -3,54 +3,25 @@ import { ResponsivePie } from '@nivo/pie'
 
 function Circlegraph({height,salesRanking,data}){
 console.log("circlegraph salesRanking : "+salesRanking);
-// const data=[
-//     {
-//       "id": salesRanking[0],
-//       "label": salesRanking[0],
-//       "value": 100,
-//       "color": "hsl(269, 70%, 50%)"
-//     },
-//     {
-//       "id": salesRanking[1],
-//       "label": salesRanking[1],
-//       "value": 60,
-//       "color": "hsl(2, 70%, 50%)"
-//     },
-//     {
-//       "id": salesRanking[2],
-//       "label": salesRanking[2],
-//       "value": 40,
-//       "color": "hsl(120, 70%, 50%)"
-//     },
-//     {
-//       "id": salesRanking[3],
-//       "label": salesRanking[3],
-//       "value": 30,
-//       "color": "hsl(120, 70%, 50%)"
-//     },
-//     {
-//       "id": salesRanking[4],
-//       "label": salesRanking[4],
-//       "value": 20,
-//       "color": "hsl(120, 70%, 50%)"
-//     }
-//   ];
+
 const MyResponsivePie = () => (
     <>
-    <div style={{height}}>
+    <div style={{width:'100%',height, position: 'relative',flex: 1, marginLeft: '-65px'}}>
     <ResponsivePie
+        style={{overflow: 'visible'}}
         data={data}
         margin={{ top: 3, right: 10, bottom: 20, left: 5 }}
         sortByValue={true}
         fit={true}
         innerRadius={0.65}
-
+        
         
 
         padAngle={0.7}
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         colors={{ scheme: 'purple_blue' }}
+        translateX = {-300}
         borderWidth={1}
         borderColor={{
             from: 'color',

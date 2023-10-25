@@ -14,11 +14,20 @@ function Main() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://3.35.21.109//api");
-      setExpectedSales(response.data.expectedSales);
+      const response = await axios.get("http://3.35.21.109/api/");
       const fetchedSalesRanking = response.data.salesRanking.map(item => item.item_Name);
       setSalesRanking(fetchedSalesRanking);
-      setPreviousSales(response.data.previousSales);
+      
+      const formatCurrency= (value)=>{
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+      }
+      
+      const formattedPreviousSales = formatCurrency(response.data.previousSales);
+      const formattedExpectedSales = formatCurrency(response.data.expectedSales);
+      setPreviousSales(formattedPreviousSales);
+      setExpectedSales(formattedExpectedSales);
+
+      // setPreviousSales(response.data.previousSales);
       setDataCircle(response.data.salesRanking);
       
 
@@ -59,6 +68,8 @@ function Main() {
         ];
         console.log("newDateCircle : ", newDataCircle);
         setDataCircle(newDataCircle);
+
+
       }
     };
     fetchData();

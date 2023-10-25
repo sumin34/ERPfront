@@ -17,18 +17,18 @@ import axios from 'axios';
 
 function Detail() {
   
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        "http://3.35.21.109/api/detail" 
-          // +"page=" +
-          // (page + 1) +
-          // "&size=" +
-          // rowsPerPage
-      );
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await axios.get(
+  //       "http://3.35.21.109/api/detail" 
+  //         // +"page=" +
+  //         // (page + 1) +
+  //         // "&size=" +
+  //         // rowsPerPage
+  //     );
+  //   };
+  //   fetchData();
+  // }, []);
   const data = [
     {
       "id": "japan",

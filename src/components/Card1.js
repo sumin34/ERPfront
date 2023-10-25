@@ -31,7 +31,7 @@ function Card1({title_info, show_info, selectedGraph, dataCircle}) {
           <div class="row">
             <div class="col">
               <p class="font-sans-serif lh-1 mb-1 fs-4">{show_info}</p>
-              <div style={{ width: "200px" }}>
+              <div style={{ width: "250px",overflow:'visible' }}>
                 {renderSelectedGraph()}
               </div>
               <span class="badge badge-subtle-success rounded-pill fs--2">
